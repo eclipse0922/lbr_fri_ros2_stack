@@ -37,9 +37,10 @@ ROS 2 packages for the KUKA LBR, including communication to the real robot via t
 Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io/en/latest).
 
 ## Quick Start
-1. Install ROS 2 development tools
+1. Install ROS 2 and required tools
 
     ```shell
+    sudo apt install ros-humble-desktop
     sudo apt install ros-dev-tools
     ```
 
@@ -47,9 +48,8 @@ Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io
 
     ```shell
     source /opt/ros/humble/setup.bash
-    export FRI_CLIENT_VERSION=1.15
-    mkdir -p lbr-stack/src && cd lbr-stack
-    vcs import src --input https://raw.githubusercontent.com/lbr-stack/lbr_fri_ros2_stack/humble/lbr_fri_ros2_stack/repos-fri-${FRI_CLIENT_VERSION}.yaml
+    export FRI_CLIENT_VERSION=2.7
+    vcs import src --input https://raw.githubusercontent.com/eclipse0922/lbr_fri_ros2_stack/humble/lbr_fri_ros2_stack/repos-fri-${FRI_CLIENT_VERSION}.yaml
     rosdep install --from-paths src -i -r -y
     ```
 
@@ -67,7 +67,7 @@ Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io
     ```shell
     source install/setup.bash
     ros2 launch lbr_bringup mock.launch.py \
-        model:=iiwa7 # [iiwa7, iiwa14, med7, med14]
+        model:=med14 # [iiwa7, iiwa14, med7, med14]
     ```
 
 > [!TIP]
